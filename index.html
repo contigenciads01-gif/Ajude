@@ -43,6 +43,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pix-checkout.css">
 
     <!-- Attribution: UTMs, Meta cookies, event_id -->
     <script src="js/attribution.js" defer=""></script>
@@ -838,7 +839,8 @@
                 <h3 id="campaignDonateModalTitle">Quanto você consegue hoje? 🧡</h3>
                 <span class="donate-modal-subtitle">CADA VALOR AJUDA O VICENTE</span>
             </div>
-                            <div class="donation-options" id="donation-section">
+            <div class="pix-step is-active" id="pixStep-select">
+                <div class="donation-options" id="donation-section">
                 <div class="donation-option">
                     <a href="/do/checkout/?valor=30" class="donation-link">R$30</a>
                 </div>
@@ -887,6 +889,80 @@
                     <li><strong>R$300</strong> = parte do tratamento</li>
                     <li><strong>R$500</strong> = aproxima o cuidado do Vicente</li>
                 </ul>
+            </div>
+        </div>
+
+            <!-- PASSO 2: IDENTIFICAÇÃO DO DOADOR -->
+            <div class="pix-step" id="pixStep-form">
+                <div class="text-center" style="margin-bottom:12px;">
+                    <div class="pix-value-badge">
+                        <span>Valor selecionado:</span> <strong class="pixSelectedAmountText">R$ 100,00</strong>
+                    </div>
+                </div>
+                <form id="pixPayerForm">
+                    <div class="pix-form-group">
+                        <label for="pixPayerName" class="pix-label">Nome Completo</label>
+                        <input type="text" id="pixPayerName" class="pix-input" placeholder="Ex: Maria Santos Silva" required autocomplete="name">
+                    </div>
+                    <div class="pix-form-group">
+                        <label for="pixPayerDocument" class="pix-label">CPF (exigido para o comprovante PIX)</label>
+                        <input type="text" id="pixPayerDocument" class="pix-input" placeholder="000.000.000-00" maxlength="14" required inputmode="numeric">
+                    </div>
+                    <button type="submit" id="pixSubmitBtn" class="pix-btn-primary">
+                        <span>🔒 GERAR QR CODE PIX</span>
+                    </button>
+                    <button type="button" id="pixBackBtn" class="pix-btn-secondary">
+                        ← Escolher outro valor
+                    </button>
+                </form>
+            </div>
+
+            <!-- PASSO 3: QR CODE E COPIA E COLA -->
+            <div class="pix-step" id="pixStep-pix">
+                <div class="text-center">
+                    <div class="pix-value-badge">
+                        <span>Doação:</span> <strong class="pixSelectedAmountText">R$ 100,00</strong>
+                    </div>
+                    <div class="pix-qr-box">
+                        <img id="pixQrCodeImg" class="pix-qr-img" src="" alt="QR Code PIX">
+                    </div>
+                    <div class="pix-status-alert">
+                        <span class="pix-pulse-dot"></span>
+                        <span>Aguardando confirmação do pagamento...</span>
+                    </div>
+                    <div class="pix-copy-wrapper">
+                        <input type="text" id="pixCopyCodeInput" class="pix-copy-input" readonly>
+                        <button type="button" id="pixCopyBtn" class="pix-btn-copy">
+                            <span>📋 COPIAR CÓDIGO PIX</span>
+                        </button>
+                    </div>
+                    <div class="pix-instructions">
+                        <h5>Como pagar:</h5>
+                        <ol>
+                            <li>Abra o aplicativo do seu banco.</li>
+                            <li>Escolha <strong>Pagar com PIX</strong> &gt; <strong>Copia e Cola</strong>.</li>
+                            <li>Cole o código copiado e confirme a doação.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASSO 4: SUCESSO -->
+            <div class="pix-step" id="pixStep-success">
+                <div class="pix-success-box">
+                    <div class="pix-success-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <h4 class="pix-success-title">Doação Confirmada! 🎉</h4>
+                    <p class="pix-success-text">
+                        Seu pagamento foi recebido com sucesso. Em nome do Vicente e de toda a família, o nosso muito obrigado pelo carinho e apoio!
+                    </p>
+                    <button type="button" class="pix-btn-primary" onclick="closeDonateModal()">
+                        Concluir
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -943,6 +1019,7 @@
     <script src="js/swiper-bundle.min.js" defer=""></script>
     <script src="js/tracker.js" defer=""></script>
     <script src="js/main.js" defer=""></script>
+    <script src="js/pix-checkout.js" defer=""></script>
 
     <!-- Links do rodape sobem suavemente para o topo -->
     <script>

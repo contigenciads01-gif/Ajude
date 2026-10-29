@@ -1,0 +1,234 @@
+/* ===== PIX CHECKOUT MODAL STYLES ===== */
+.pix-step{display:none;width:100%;animation:pixFadeIn .22s ease-out}
+.pix-step.is-active{display:block}
+@keyframes pixFadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Header com badge do valor */
+.pix-value-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:rgba(36,202,104,0.12);
+    color:#16A34A;
+    font-weight:700;
+    font-size:15px;
+    padding:6px 16px;
+    border-radius:999px;
+    margin:0 auto 16px;
+    letter-spacing:-0.01em;
+}
+
+/* Formulário de Identificação */
+.pix-form-group{margin-bottom:14px;text-align:left}
+.pix-label{
+    display:block;
+    font-size:12px;
+    font-weight:600;
+    color:#475569;
+    margin-bottom:6px;
+    letter-spacing:0.2px;
+}
+.pix-input{
+    width:100%;
+    padding:12px 14px;
+    border:1.5px solid #CBD5E1;
+    border-radius:10px;
+    font-family:'Montserrat','Roboto',sans-serif;
+    font-size:14px;
+    color:#0F172A;
+    background:#FFFFFF;
+    outline:none;
+    transition:border-color .18s,box-shadow .18s;
+    box-sizing:border-box;
+}
+.pix-input:focus{
+    border-color:#24CA68;
+    box-shadow:0 0 0 3px rgba(36,202,104,0.18);
+}
+.pix-input::placeholder{color:#94A3B8}
+
+/* Botões */
+.pix-btn-primary{
+    width:100%;
+    background:#24CA68;
+    color:#FFFFFF;
+    border:none;
+    padding:14px 20px;
+    border-radius:10px;
+    font-family:'Montserrat','Roboto',sans-serif;
+    font-weight:700;
+    font-size:15px;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    transition:background .18s,transform .18s,box-shadow .18s;
+    box-shadow:0 4px 14px rgba(36,202,104,0.28);
+    margin-top:10px;
+    line-height:1.2;
+}
+.pix-btn-primary:hover{
+    background:#1FAB58;
+    transform:translateY(-1px);
+    box-shadow:0 6px 18px rgba(36,202,104,0.36);
+}
+.pix-btn-primary:disabled{
+    background:#94A3B8;
+    cursor:not-allowed;
+    transform:none;
+    box-shadow:none;
+}
+
+.pix-btn-secondary{
+    width:100%;
+    background:transparent;
+    color:#64748B;
+    border:none;
+    padding:10px 14px;
+    border-radius:8px;
+    font-family:'Montserrat','Roboto',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    cursor:pointer;
+    margin-top:8px;
+    transition:color .15s;
+    text-align:center;
+}
+.pix-btn-secondary:hover{color:#0F172A;text-decoration:underline}
+
+/* Tela do QR Code PIX */
+.pix-qr-box{
+    background:#FFFFFF;
+    border:2px dashed #CBD5E1;
+    border-radius:14px;
+    padding:16px;
+    margin:12px auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    max-width:240px;
+}
+.pix-qr-img{
+    width:200px;
+    height:200px;
+    display:block;
+    border-radius:8px;
+}
+
+/* Copia e Cola */
+.pix-copy-wrapper{margin:14px 0}
+.pix-copy-input{
+    width:100%;
+    background:#F8FAFC;
+    border:1px solid #E2E8F0;
+    border-radius:8px;
+    padding:10px 12px;
+    font-family:monospace;
+    font-size:12px;
+    color:#475569;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    box-sizing:border-box;
+    margin-bottom:8px;
+    text-align:center;
+    cursor:pointer;
+}
+
+.pix-btn-copy{
+    width:100%;
+    background:#0F172A;
+    color:#FFFFFF;
+    border:none;
+    padding:13px 18px;
+    border-radius:10px;
+    font-family:'Montserrat','Roboto',sans-serif;
+    font-weight:700;
+    font-size:14px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    transition:background .18s,transform .15s;
+}
+.pix-btn-copy:hover{background:#1E293B}
+.pix-btn-copy.is-copied{background:#16A34A !important}
+
+/* Status em tempo real */
+.pix-status-alert{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    color:#64748B;
+    background:#F1F5F9;
+    padding:6px 14px;
+    border-radius:999px;
+    margin:10px auto;
+}
+.pix-pulse-dot{
+    width:8px;
+    height:8px;
+    background:#24CA68;
+    border-radius:50%;
+    box-shadow:0 0 0 0 rgba(36,202,104,0.7);
+    animation:pixPulse 1.8s infinite;
+}
+@keyframes pixPulse{
+    0%{box-shadow:0 0 0 0 rgba(36,202,104,0.7)}
+    70%{box-shadow:0 0 0 8px rgba(36,202,104,0)}
+    100%{box-shadow:0 0 0 0 rgba(36,202,104,0)}
+}
+
+/* Instruções simples */
+.pix-instructions{
+    background:#F8FAFC;
+    border:1px solid #E2E8F0;
+    border-radius:10px;
+    padding:12px 14px;
+    margin-top:14px;
+    text-align:left;
+}
+.pix-instructions h5{
+    margin:0 0 6px;
+    font-size:12px;
+    font-weight:700;
+    color:#0F172A;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+}
+.pix-instructions ol{
+    margin:0;
+    padding-left:18px;
+    font-size:12px;
+    color:#64748B;
+    line-height:1.5;
+}
+
+/* Tela de Sucesso */
+.pix-success-box{text-align:center;padding:16px 8px}
+.pix-success-icon{
+    width:64px;
+    height:64px;
+    background:#DCFCE7;
+    color:#16A34A;
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:14px;
+}
+.pix-success-title{
+    font-size:20px;
+    font-weight:800;
+    color:#0F172A;
+    margin:0 0 8px;
+}
+.pix-success-text{
+    font-size:14px;
+    color:#475569;
+    line-height:1.5;
+    margin:0 0 18px;
+}

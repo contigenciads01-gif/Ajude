@@ -16,3 +16,8 @@ yarn-error.log*
 .idea/
 *.sublime-project
 *.sublime-workspace
+
+.vercel
+.env
+.env.local
+.env.*.local
